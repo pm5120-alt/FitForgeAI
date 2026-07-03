@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FitForge AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="background">
+
+    <div class="circle c1"></div>
+    <div class="circle c2"></div>
+    <div class="circle c3"></div>
+
+</div>
+
+<header>
+
+    <h1><i class="fa-solid fa-dumbbell"></i> FitForge AI</h1>
+
+    <p>Your Personal Fitness & Nutrition Coach</p>
+
+</header>
+
+<div class="container">
+
+    <div class="glass-card">
+
+        <h2>Body Analysis</h2>
+
+        <div class="input-grid">
+
+            <div class="input-box">
+                <label>Name</label>
+                <input type="text" id="name">
+            </div>
+
+            <div class="input-box">
+                <label>Age</label>
+                <input type="number" id="age">
+            </div>
+
+            <div class="input-box">
+                <label>Height (cm)</label>
+                <input type="number" id="height">
+            </div>
+
+            <div class="input-box">
+                <label>Weight (kg)</label>
+                <input type="number" id="weight">
+            </div>
+
+            <div class="input-box">
+                <label>Gender</label>
+
+                <select id="gender">
+
+                    <option>Male</option>
+
+                    <option>Female</option>
+
+                </select>
+
+            </div>
+
+            <div class="input-box">
+
+                <label>Activity Level</label>
+
+                <select id="activity">
+
+                    <option value="1.2">Sedentary</option>
+
+                    <option value="1.375">Light</option>
+
+                    <option value="1.55">Moderate</option>
+
+                    <option value="1.725">Active</option>
+
+                    <option value="1.9">Very Active</option>
+
+                </select>
+
+            </div>
+
+            <div class="input-box full">
+
+                <label>Goal</label>
+
+                <select id="goal">
+
+                    <option>Build Muscle</option>
+
+                    <option>Lose Fat</option>
+
+                    <option>Maintain</option>
+
+                    <option>Bodybuilder</option>
+
+                    <option>Lean Athlete</option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+      <button type="button" id="analyzeBtn">
+    Analyze My Body
+</button>
+
+    </div>
+
+    <div class="result-grid">
+
+        <div class="result-card">
+
+            <i class="fa-solid fa-heart-pulse"></i>
+
+            <h3>BMI</h3>
+
+            <h2 id="bmi">--</h2>
+
+            <p id="bmiStatus">Healthy</p>
+
+        </div>
+
+        <div class="result-card">
+
+            <i class="fa-solid fa-fire"></i>
+
+            <h3>Calories</h3>
+
+            <h2 id="calories">--</h2>
+
+        </div>
+
+        <div class="result-card">
+
+            <i class="fa-solid fa-drumstick-bite"></i>
+
+            <h3>Protein</h3>
+
+            <h2 id="protein">--</h2>
+
+        </div>
+
+        <div class="result-card">
+
+            <i class="fa-solid fa-bowl-rice"></i>
+
+            <h3>Carbs</h3>
+
+            <h2 id="carbs">--</h2>
+
+        </div>
+
+        <div class="result-card">
+
+            <i class="fa-solid fa-cheese"></i>
+
+            <h3>Fats</h3>
+
+            <h2 id="fats">--</h2>
+
+        </div>
+
+        <div class="result-card">
+
+            <i class="fa-solid fa-glass-water"></i>
+
+            <h3>Water</h3>
+
+            <h2 id="water">--</h2>
+
+        </div>
+
+    </div>
+
+    <div class="glass-card">
+
+        <h2>
+
+            <i class="fa-solid fa-utensils"></i>
+
+            Today's Meal Plan
+
+        </h2>
+
+        <div id="mealPlan">
+
+            Click Analyze to Generate Meal Plan
+
+        </div>
+
+    </div>
+
+    <div class="glass-card">
+
+        <h2>
+
+            <i class="fa-solid fa-dumbbell"></i>
+
+            Workout Plan
+
+        </h2>
+
+        <div id="workoutPlan">
+
+            Click Analyze to Generate Workout
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer>
+
+Made with ❤️ using HTML • CSS • JavaScript • FastAPI
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
