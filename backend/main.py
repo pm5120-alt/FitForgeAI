@@ -3,15 +3,11 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 from calculation import calculate_fitness
-from mealplanner import get_meal_plan
 from database import save_user
+from mealplanner import get_meal_plan
+
 
 app = FastAPI(title="FitForge AI")
-
-
-# -----------------------------
-# Enable CORS
-# -----------------------------
 
 app.add_middleware(
     CORSMiddleware,
@@ -22,12 +18,7 @@ app.add_middleware(
 )
 
 
-# -----------------------------
-# User Model
-# -----------------------------
-
 class User(BaseModel):
-
     name: str
     age: int
     gender: str
@@ -37,63 +28,31 @@ class User(BaseModel):
     goal: str
 
 
-# -----------------------------
-# Home Route
-# -----------------------------
-
 @app.get("/")
 def home():
+    return {"message": "Welcome to FitForge AI Backend"}
 
-    return {
-
-        "message": "Welcome to FitForge AI Backend 🚀"
-
-    }
-
-
-# -----------------------------
-# Calculate Route
-# -----------------------------
 
 @app.post("/calculate")
 def calculate(user: User):
-
-    user_data = user.dict()
-
+    user_data = user.model_dump()
     result = calculate_fitness(user_data)
+    meal_plan = get_meal_plan(user.goal)
 
-    meal = get_meal_plan(user.goal)
-
-    save_data = {
-
+    save_user_data = {
         **user_data,
-
         **result
-
     }
 
-    save_user(save_data)
+    save_user(save_user_data)
 
     return {
-
         "success": True,
-
         "result": result,
-
-        "meal_plan": meal
-
+        "meal_plan": meal_plan
     }
 
-
-# -----------------------------
-# Health Check
-# -----------------------------
 
 @app.get("/health")
 def health():
-
-    return {
-
-        "status": "Server Running"
-
-    }
+    return {"status": "Server Running"}
